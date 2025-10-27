@@ -31,16 +31,10 @@ int l = 0;
 while(*s != '\0')
 {
 ++l;
-++s;
+++*s;
 }
 
 int l_cp = l;
-
-while( l_cp !=0)
-{
---s;
---l_cp;
-}
 
 return l;
 }
