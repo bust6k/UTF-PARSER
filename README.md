@@ -1,20 +1,12 @@
 # Table of content
 
-- [goodbye, libary!](#The-end)
+
 - [synopsis](#Synopsys)
 - [features](#Features)
 - [download](#Download)
 - [project structure describe](#Project-structure-describing)
 - [engineering approach](#Approach-on-project)
 - [system versioning](#System-versioning)
-
-# The end
-now, in  14 tuesday 2025 year i've decided: the libary don't upgrade me how system engineer.
- All, what i'm can do with the libary it's add new UTF formats,multi threading and  cache. 
- But, it doesn't give the libary some popular, and i can learning that all after more greater assigment.
- I'm want  be creator of big systems,and determine of UTF-(8,16,32) speak: it's small project,run from continuing!
- THerefore i'm speaking last phrase from the libary face:  the project is closed, more upgrades is doesn't provide.
- The last freshest version is *1.0.2* and *1.0.2.F.1*
 
 # Synopsys
 
@@ -47,8 +39,30 @@ git clone https://github.com/bust6k/UTF-PARSER.git
 ``` bash
 git clone git@github.com:bust6k/UTF-PARSER.git
 ```
+# Quick start
 
+just execute the command below, and the proggram 
+requests you enter UTF-8 symbol,after it the proggram
+displays you Unicode form of the symbol.
+after encoding presentation you are see request to enter
+Unicode point and after it you are see UTF-8 form of
+Unicode point
 
+```bash
+
+```
+
+# API
+the current header describes public API functions to use
+in the library. A helper functions are exclude.
+
+- int32_t utf8_decode(int8_t* bytes, int* out) - the decode function
+decodes UTF-8 symbol "bytes",returning Unicode point  and writes him len into "out".
+If an error is occured,then  utf8_decode function set on out and return value -1.
+If  give utf8_decode function something bizzare that she can not process it,then the functuon set on out and return value -2
+
+- int32_t utf8_encode(uint8_t* c,int* out) - the encode function encodes Unicode point "c",returning UTF-8 symbol  and writes him len 
+into "out". the utf8_encode function processing errors same as utf8_decode function
 # Project structure describing
 
 ```bash
