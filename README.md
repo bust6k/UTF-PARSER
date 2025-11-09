@@ -4,6 +4,7 @@
 - [synopsis](#Synopsys)
 - [features](#Features)
 - [download](#Download)
+- [api of library](#API)
 - [project structure describe](#Project-structure-describing)
 - [engineering approach](#Approach-on-project)
 - [system versioning](#System-versioning)
@@ -39,18 +40,7 @@ git clone https://github.com/bust6k/UTF-PARSER.git
 ``` bash
 git clone git@github.com:bust6k/UTF-PARSER.git
 ```
-# Quick start
 
-just execute the command below, and the proggram 
-requests you enter UTF-8 symbol,after it the proggram
-displays you Unicode form of the symbol.
-after encoding presentation you are see request to enter
-Unicode point and after it you are see UTF-8 form of
-Unicode point
-
-```bash
-
-```
 
 # API
 the current header describes public API functions to use

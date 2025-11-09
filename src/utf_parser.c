@@ -18,6 +18,7 @@ limitations under the License.
 #include "../include/utf_parser.h"
 #include<unistd.h>
 #include <stdint.h>
+#include<stdio.h>
 
 
 #define UNCORRECT_SYMBOL -1
@@ -31,7 +32,7 @@ int l = 0;
 while(*s != '\0')
 {
 ++l;
-++*s;
+*s++;
 }
 
 int l_cp = l;
@@ -103,7 +104,7 @@ int32_t utf8_decode(int8_t* bytes, int* out)
         }
         case 3:
         {
-            if ((*(bytes + 1) & 0xC0) != 0x80 || (*(bytes + 2) & 0xC0) != 0x80 || (*bytes) & 0xF0 != 0xE0) 
+            if ((*(bytes + 1) & 0xC0) != 0x80 || (*(bytes + 2) & 0xC0) != 0x80 || ((*bytes) & 0xF0) != 0xE0) 
             {
 
             *out = UNCORRECT_SYMBOL;
@@ -122,7 +123,7 @@ int32_t utf8_decode(int8_t* bytes, int* out)
 
         case 4:
         {
-            if ((*(bytes + 1) & 0xC0) != 0x80 || (*(bytes + 2) & 0xC0) != 0x80 || (*(bytes + 3) & 0xC0) != 0x80 || (*bytes) & 0xF8 != 0xF0) 
+            if ((*(bytes + 1) & 0xC0) != 0x80 || (*(bytes + 2) & 0xC0) != 0x80 || (*(bytes + 3) & 0xC0) != 0x80 || ((*bytes) & 0xF8) != 0xF0) 
             {
             *out = UNCORRECT_SYMBOL;
 
@@ -264,3 +265,29 @@ int32_t utf8_encode(uint8_t* c,int* out)
 }
 
 
+
+int main()
+{
+printf("enter Unicode point \n");
+unsigned char buf[10];
+
+int r = read(0,buf,10);
+
+buf[r] = '\0';
+
+int out = 0;
+utf8_encode(buf,&out);
+printf("the UTF-8 symbol:%s,  him len: %d",buf,out);
+
+
+printf("enter UTF-8  symbol  \n");
+signed char buf1[20];
+
+int r1 = read(0,buf,20);
+
+buf1[r1] = '\0';
+
+int out1 = 0;
+utf8_decode(buf1,&out);
+printf("the Unicode point:%s, t him len: %d",buf1,out1);
+}
