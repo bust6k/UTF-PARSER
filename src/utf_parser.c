@@ -197,7 +197,7 @@ int32_t utf8_encode(uint8_t* c,int* out)
     {
         case UNCORRECT_SYMBOL:
         {
-        *out = UNKNOWN_THING;
+        *out = UNCORRECT_SYMBOL;
 
          const char* msg = "[UTF-8 ECNODER]: do you sure the symbol is correct? \n";
 
@@ -274,10 +274,10 @@ unsigned char buf[10];
 int r = read(0,buf,10);
 
 buf[r] = '\0';
-
+printf(buf);
 int out = 0;
-utf8_encode(buf,&out);
-printf("the UTF-8 symbol:%s,  him len: %d",buf,out);
+uintutf8_encode(buf,&out);
+printf("the UTF-8 symbol:%s,  him len: %d \n",buf,out);
 
 
 printf("enter UTF-8  symbol  \n");
@@ -289,5 +289,5 @@ buf1[r1] = '\0';
 
 int out1 = 0;
 utf8_decode(buf1,&out);
-printf("the Unicode point:%s, t him len: %d",buf1,out1);
+printf("the Unicode point:%s, t him len: %d \n",buf1,out1);
 }
