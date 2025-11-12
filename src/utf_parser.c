@@ -24,26 +24,20 @@ limitations under the License.
 #define UNKNOWN_THING -2
 #define STDOUT 1
 
-int len(const char* s)
-{
-int l = 0;
+  int len(const char* s)
+  {
+  int l = 0;
+  
+  while(*s != '\0')
+  {
+  ++l;
+  *s++;        
+  }
+  
+  return l;
+  }
+  
 
-while(*s != '\0')
-{
-++l;
-++s;
-}
-
-int l_cp = l;
-
-while( l_cp !=0)
-{
---s;
---l_cp;
-}
-
-return l;
-}
 
 
 int8_t utf8_decode_len(int8_t b)
