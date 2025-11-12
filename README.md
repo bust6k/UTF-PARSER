@@ -1,6 +1,4 @@
 # Table of content
-
-- [goodbye, libary!](#The-end)
 - [synopsis](#Synopsys)
 - [features](#Features)
 - [download](#Download)
@@ -8,17 +6,10 @@
 - [engineering approach](#Approach-on-project)
 - [system versioning](#System-versioning)
 
-# The end
-now, in  14 tuesday 2025 year i've decided: the libary don't upgrade me how system engineer.
- All, what i'm can do with the libary it's add new UTF formats,multi threading and  cache. 
- But, it doesn't give the libary some popular, and i can learning that all after more greater assigment.
- I'm want  be creator of big systems,and determine of UTF-(8,16,32) speak: it's small project,run from continuing!
- THerefore i'm speaking last phrase from the libary face:  the project is closed, more upgrades is doesn't provide.
- The last freshest version is *1.0.2* and *1.0.2.F.1*
 
 # Synopsys
 
-**UTF-PARSER** - is a library that provides encode/decode functions that implement some UTF formats (the current version can ensure only UTF-8). The library is written for educational purposes because I wanted to train a bitwise mind to write an operating system. But in the development process, I thought: if I write the parser, why I can't bind together educational and production purposes? From this idea, you are seeing the library that has the name **UTF-PARSER**. The current version of **UTF-PARSER** is *1.0.2.F.1* in dev option, or *1.0.2* in common option. Learn more about system versioning [here](#System-versioning). The current version of the parser can't have unit tests because writing them on decode/encode signatures is very uncomfortable. I've decided to write unit tests at some other time.
+**UTF-PARSER** - is a library that provides encode/decode functions that implement some UTF formats (the current version can ensure only UTF-8). The library is written for educational purposes because I wanted to train a bitwise mind to write an operating system. But in the development process, I thought: if I write the parser, why I can't bind together educational and production purposes? From this idea, you are seeing the library that has the name **UTF-PARSER**. The current version of **UTF-PARSER** is *1.0.3.F.1* in dev option, or *1.0.3* in common option. Learn more about system versioning [here](#System-versioning).
 
 # Features
  
