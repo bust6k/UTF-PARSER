@@ -196,7 +196,7 @@ int32_t utf8_encode(uint8_t* c,int* out)
     {
         case UNCORRECT_SYMBOL:
         {
-        *out = UNKNOWN_THING;
+        *out =  UNCORRECT_SYMBOL;
 
          const char* msg = "[UTF-8 ECNODER]: do you sure the symbol is correct? \n";
 
