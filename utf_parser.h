@@ -21,7 +21,7 @@ limitations under the License.
 #include <stdint.h>
 #include<stdbool.h>
 
-#define UNCORRECT_SYMBOL -1
+#define INCORRECT_SYMBOL -1
 #define UNKNOWN_THING -2
 // the len functions are helper and for internally use, but if you want you can use their for your purposes
 
