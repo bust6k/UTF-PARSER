@@ -22,7 +22,6 @@ limitations under the License.
 #define INCORRECT_SYMBOL -1
 #define UNKNOWN_THING -2
 
-// КРОССПЛАТФОРМЕННЫЕ ЦВЕТА
 #ifdef _WIN32
 #include <windows.h>
 
