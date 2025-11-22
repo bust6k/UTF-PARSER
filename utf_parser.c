@@ -36,7 +36,7 @@ void set_console_color(int color) {
 #define CYAN_COLOR set_console_color(FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY)
 
 #else
-// Unix/Linux/MacOS
+
 #define RED_COLOR "\e[31m"
 #define RESET_COLOR "\e[0m"
 #define GREEN_COLOR "\e[32m"
