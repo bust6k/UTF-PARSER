@@ -19,6 +19,7 @@ limitations under the License.
 #define UTF_PARSER_H
 
 #include <stdint.h>
+#include<stdbool.h>
 
 #define UNCORRECT_SYMBOL -1
 #define UNKNOWN_THING -2
@@ -30,7 +31,7 @@ int8_t utf8_encode_len(uint32_t cp);
 
 // it's main API.
 
-int32_t utf8_decode(int8_t* bytes, int* out);
-int32_t utf8_encode(uint8_t* c, int* out);
+int32_t utf8_decode(int8_t* bytes, int* out,bool dump);
+int32_t utf8_encode(uint8_t* c, int* out,bool dump);
 
 #endif // UTF_PARSER_H
