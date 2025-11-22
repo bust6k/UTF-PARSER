@@ -3,29 +3,27 @@
 - [features](#Features)
 - [download](#Download)
 - [project structure describe](#Project-structure-describing)
-- [engineering approach](#Approach-on-project)
+- [API of library](#API)
 - [system versioning](#System-versioning)
 
 
 # Synopsys
 
-**UTF-PARSER** - is a library that provides encode/decode functions that implement some UTF formats (the current version can ensure only UTF-8). The library is written for educational purposes because I wanted to train a bitwise mind to write an operating system. But in the development process, I thought: if I write the parser, why I can't bind together educational and production purposes? From this idea, you are seeing the library that has the name **UTF-PARSER**. The current version of **UTF-PARSER** is *1.0.3.F.1* in dev option, or *1.0.3* in common option. Learn more about system versioning [here](#System-versioning).
+**UTF-PARSER** - is a library that provides encode/decode functions that implement some UTF formats (the current version can ensure only UTF-8). The library is written for educational purposes because I wanted to train a bitwise mind to write an operating system. But in the development process, I thought: if I write the parser, why I can't bind together educational and production purposes? From this idea, you are seeing the library that has the name **UTF-PARSER**. The current version of **UTF-PARSER** is *2.1.5.13.1* in dev option, or *2.1.5* in common option. Learn more about system versioning [here](#System-versioning).
 
 # Features
  
-- Custom len function to determine a string length
+- Cross platform code that works on any unix like system and on windows
 
-- The decoder and encoder functions have simple structs; the source code of the parser can be read in less than 1 day
+- Library has own dumper for detailed meaning what happend while decode/ecnode symbol
 
-- The decoder function defends against invalid UTF-8 bytes; in fault cases, the function writes an error message on stdout and returns
+- Library use colored and detailed output to determine error
 
-- The encoder functions defend against invalid codepoints; in fault cases, they write an error message on stdout and return, similar to the decoder
-
--  The parser has minimal dependencies. Once the parser involves unistd and stdint, making **UTF-PARSER** a flexible library.
+- Library has simple and flexibility API
 
 # Download
 
-use the simple command below for cloning latest libary version on your project. have 2 variants how download:
+use the simple command below for cloning latest libary version on your project. have 2 variants how to download:
 
 - via https
 
@@ -44,26 +42,23 @@ git clone git@github.com:bust6k/UTF-PARSER.git
 
 ```bash
 .
-├── include
-│   ├── utf_parser.h # API for using
 ├── README.md # the file describes what the parser can do and some other descriptions (the current file)
-├── src
-│   ├── utf_parser.c # the implementation of encoder/decoder UTF formats
-└── tests
-├── utf8_decoder_test.c # currently, tests are not ready for work, but soon I'll link them with an object file, and tests will work
-└── utf8_encoder_test.c
+├── utf_parser.c  # the implementation of encoder/decoder UTF formats
+├── utf_parser.h # API for using
+
 ```
+# API
+**API** of **UTF-PARSER** library has simple,flexibility structure to comfortable dumping,and using. Here's 2 main **APU** functions:
 
+- int32_t utf8_decode(signed char* bytes, int* out, bool dump)  - this function decodes bytes stream *bytes*,return its representation in Unicode form and writes in *out* its length. third parametr used for enable dump process.
+ If you have hard problem you can enable dumper and see all stages where symbol decoding fails/pass. 
+If *bytes* are incorrect, the function in *out* returns -1(INCORRECT_SYMBOL),and, if *bytes* null pointer,the function returns -2(UNKNOWN_THING).
+If *bytes* are incorrect,or *bytes* is null,the function returns 1
 
-# Approach on project
+- int32_t utf8_encode(uint8_t* c, int* out, bool dump) - this function encodes Unicode symbol *c*,return its representation in UTF-8 form and writes in *out* its length. third parametr does same as in utf8_decode function.
+If *bytes* are incorrect, the function in *out* returns -1(INCORRECT_SYMBOL),and, if *bytes* null pointer,the function returns -2(UNKNOWN_THING).
+If *bytes* are incorrect,or *bytes* is null,the function returns 1
 
-- Comfortable API first: Firstly, I tried to make the API comfortable for use. Instead of int, I chose char* because nobody works directly with raw endpoints; all work with byte streams. Our pointer is easier for debugging sessions because you mustn't check big-endian bits. The library provides a comfortable interface for knowing the length of an encoded/decoded symbol.
-
-
-- Security: the parser checks any byte on invalid sequence;the parser process any edge case she can process;the parser checks the symbol is entry on correct symbol ranges.
-
-
-- Independence: The library has minimal dependencies; therefore, the parser can be used on any UNIX-like system (and on Windows). The parser only depends on system calls.
 
 # System versioning
 
